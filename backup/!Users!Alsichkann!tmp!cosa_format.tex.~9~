@@ -1,0 +1,120 @@
+%%%%% List your macros below %%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Beginning of setup (Do not change) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,draft,reqno]{amsart}
+   % MODIFYING AMSART.CLS:
+     \makeatletter
+     \def\section{\@startsection{section}{1}%
+     \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+     {\bfseries%\normalfont\scshape
+     \centering
+     }}
+     \def\@secnumfont{\bfseries}
+     \makeatother
+   % END OF MODIFICATION OF AMSART.CLS.
+\setlength{\textheight}{19.5 cm}
+
+\setlength{\textwidth}{12.5 cm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\setcounter{page}{1}
+%%%%% End of setup (Do not change) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title[short title for running heading]{title of the paper}
+
+\author{John Doe}
+\address{John Doe: Department, University, City, State with zip code, Country}
+\email{johndoe@dept.univ.edu}
+\urladdr{http://www.math.univ.edu/$\sim$johndoe \bf(optional)}
+
+\author[Jane Doe]{Jane Doe*}
+\thanks{* This research is supported by the Doe Foundation}
+\address{Jane Doe: Department, University, City, State with zip code, Country}
+\email{janedoe@dept.univ.edu}
+
+\subjclass[2010] {Primary ?????; Secondary ?????}
+
+\keywords{???}
+
+\begin{abstract}
+?????????? (at most 150 words) ds 
+\end{abstract}
+
+\maketitle
+(${how}$)
+
+\noindent $\clubsuit$ Note to author: Use 2000 Mathematics Subject Classification.
+
+\section{The First Section}
+this is the first section
+???????????????????????????  
+
+
+let some changes
+what are you  this is
+\begin{proposition}
+??????????
+\end{proposition}
+
+\begin{proof}
+??????????
+\end{proof}
+
+\section{The Second Section}
+
+??????????????????????? this is ????
+
+\begin{lemma}
+??????????
+\end{lemma}
+
+\begin{proof}
+??????????x1
+\end{proof}
+ what $\sigma#$
+\begin{theorem}
+??????????
+\end{theorem}
+
+\begin{proof}
+??????????
+\end{proof}
+
+\par\bigskip\noindent how w
+{\bf Acknowledgment.} ????? {\bf(optional)}
+
+\bibliographystyle{amsplain}
+\begin{eqnarray}
+  \sigma what 
+\end{eqnarray}
+
+\begin{thebibliography}{99}
+
+\bibitem{gr65} Gross, L.:
+ Abstract Wiener spaces, in: {\em Proc. 5th Berkeley Symp. Math. Stat. and 
+ Probab.} {\bf 2}, part 1 (1965) 31--42, University of California Press, Berkeley.
+
+\bibitem{ito44} It\^o, K.:
+ Stochastic integral, {\em Proc. Imp. Acad. Tokyo} {\bf 20} (1944), no.~8, 519--524.
+
+\bibitem{mck69} McKean, H. P.:
+{\em Stochastic Integrals}, Academic Press, New York, 1969.
+
+\end{thebibliography}
+
+\noindent $\clubsuit$ Note to author:
+Proceedings articles should be formatted as in reference 1
+above, journal articles as in reference 2 above, and books as in
+reference 3 above.
+
+\end{document}

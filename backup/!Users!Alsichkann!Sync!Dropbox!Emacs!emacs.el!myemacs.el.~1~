@@ -1,0 +1,197 @@
+(require 'my-el-get)
+
+
+;; on to the visual settings
+
+
+(auto-fill-mode 1)
+(auto-image-file-mode)
+(global-font-lock-mode t)          ;; 语法高亮
+(blink-cursor-mode -1)             ;;光标不要闪烁
+(mouse-avoidance-mode 'animate)    ;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
+(desktop-save-mode 1)              ;;Emacs自带保存桌面功能.
+(column-number-mode t) 
+(line-number-mode t) 
+;(global-linum-mode t)              ;;显示行号
+;(column-number-mode 1)	           ;; column numbers in the mode line
+(cua-mode)                         ;; copy/paste with C-c and C-v and C-x, check out C-RET too
+(setq x-select-enable-clipboard t) ;; Use the clipboard, pretty please, so that copy/paste "works"
+(fset 'yes-or-no-p 'y-or-n-p)      ;; 把 yes or no 换为 y or n
+
+;; 不用 TAB 来缩进，只用空格。
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 4)
+(setq tab-stop-list nil)
+(add-hook 'text-mode-hook 'auto-fill-mode)
+
+
+(server-start) 
+
+;;启用时间显示设置 
+(display-time-mode 1)  
+
+(setq default-buffer-file-coding-system 'utf-8
+      default-frame-alist (append '((top + -4)(left + 0)(width . 80) (height . 38)) default-frame-alist);;; left +660 closetoright.
+      visible-bell nil
+      inhibit-startup-message t                ;;关闭启动时的 “开机画面”
+      transient-mark-mode t                    ;;加亮选中部分 
+      default-major-mode 'text-mode            ;;设置缺省模式是text，而不是基本模式
+      truncate-partial-width-windows nil       ;; 窗口中内容自动换行
+      default-fill-column 68                   ;; 窗口中内容自动换行
+     ;;default-justification 'full              ;; 窗口中内容自动换行
+     ;; adaptive-fill-mode nil                   ;; 窗口中内容自动换行
+      mouse-yank-at-point t                  ;; 支持中键粘贴
+      column-number-mode t                     ;; 在 mode-line 中显示列号
+      ;; 备份目录
+      backup-directory-alist '(("." . "~/.emacs.d/backup"))
+      backup-by-copying t
+      ;; 备份的版本控制
+      version-control t
+      kept-new-versions 3
+      delete-old-versions t
+      kept-old-versions 2
+      dired-kept-versions 1
+      ;; 设置 emacs 的标题
+      frame-title-format "emacs@%b %f" 
+      ;;设置 sentence-end 可以识别中文标点。不用在 fill 时在句号后插入两个空格。
+      sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*"
+      ;;设定句子结尾，主要针对中文设置
+      ;; (setq sentence-end "\\([ $(A!##!#? (B]\\| $(A!-!- (B\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
+      sentence-end-double-space nil
+      ;;括号匹配时显示另外一边的括号，而不是烦人的跳到另一个括号。
+      show-paren-style 'parentheses
+      ;;防止页面滚动时跳动， scroll-margin 3 可以在靠近屏幕边沿3行时就开始滚动，可以很好的看到上下;文。
+      scroll-margin 3 scroll-conservatively 10000
+      ;;设置日历表的中文天干地支，在日期上按 `p C' 就可以显示农历和干支。
+      ;;chinese-calendar-celestial-stem ["甲" "乙" "丙" "丁" "戊" "已" "庚" "辛" "壬" "癸"]
+      ;;chinese-calendar-terrestrial-branch ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"]
+      ;;时间显示设置 
+      display-time-24hr-format t
+      display-time-day-and-date t   
+      user-full-name "Xin Zhang"
+      user-mail-address "xin.zhang.nku@gmail.com" 
+      skeleton-pair t
+     )
+ 
+
+
+;; 这个是对 Linux 用的。设置之后才能从 emacs 拷贝到别的程序中
+
+(when (eq window-system 'x)
+  (setq x-select-enable-clipboard t))
+
+
+;; 记录修改时间，在文件头部加入 Time-stamp: <> 或者 Time-stamp: " "
+(add-hook 'write-file-hooks 'time-stamp)
+(setq time-stamp-format "%:u %02m/%02d/%04y %02H:%02M:%02S")
+
+
+;; =============== Spell Checking ====================>
+;(setq-default
+;              ;;Spell Checking
+;              ispell-program-name "aspell"
+;              ispell-local-dictionary "american"
+;              ;; 文本行间距
+;              line-spacing 4
+;              desktop-load-locked-desktop t
+;)
+
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+
+
+
+
+;;设置风格corlor theme
+;;(require 'color-theme)
+    (color-theme-initialize)
+    (color-theme-robin-hood)
+    (color-theme-gnome2)
+;设置默认字体
+(set-default-font "YaHei Consolas Hybrid")
+(set-fontset-font "fontset-default"
+  'unicode '("YaHei Consolas Hybrid" . "unicode-bmp"))
+
+;; choose your own fonts, in a system dependant way
+;;(if (string-match "apple-darwin" system-configuration)
+;;    (set-face-font 'default "Monaco-13")
+;;  (set-face-font 'default "Monospace-10"))
+
+
+
+;; tabbar 
+(require 'tabbar)
+(tabbar-mode t)
+(global-set-key [(meta j)] 'tabbar-backward)  
+(global-set-key [(meta k)] 'tabbar-forward)  
+;;;; 设置tabbar外观
+;; 设置默认主题: 字体, 背景和前景颜色，大小
+(set-face-attribute 'tabbar-default nil
+                    :family "Vera Sans YuanTi Mono"
+                    :background "gray80"
+                    :foreground "gray30"
+                    :height 1.0
+                    )
+;; 设置左边按钮外观：外框框边大小和颜色
+(set-face-attribute 'tabbar-button nil 
+                    :inherit 'tabbar-default
+                    :box '(:line-width 1 :color "gray30")
+                    )
+;; 设置当前tab外观：颜色，字体，外框大小和颜色
+(set-face-attribute 'tabbar-selected nil
+                    :inherit 'tabbar-default
+                    :foreground "DarkGreen"
+                    :background "LightGoldenrod"
+                    :box '(:line-width 2 :color "DarkGoldenrod")
+                    ;; :overline "black"
+                    ;; :underline "black"
+                    :weight 'bold
+                    )
+;; 设置非当前tab外观：外框大小和颜色
+(set-face-attribute 'tabbar-unselected nil
+                    :inherit 'tabbar-default
+                    :box '(:line-width 2 :color "gray70")
+                    )
+
+ (setq tabbar-buffer-groups-function
+          (lambda ()
+           (list "All"))) ;; code by Peter Barabas
+
+
+;;加强c-x c-b (buffer list)的功能，用起来和目录差不多, 按 g 刷新
+(require 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(autoload 'ibuffer "ibuffer" "List buffers." t)
+ 
+;;用于在dired模式下直接修改文件或目录名(默认配置按r)
+(require 'wdired)
+(autoload 'wdired-change-to-wdired-mode "wdired")
+(define-key dired-mode-map "r"
+'wdired-change-to-wdired-mode)
+
+
+
+;; use ido for minibuffer completion
+(require 'ido)
+(ido-mode t)
+(setq ido-save-directory-list-file "~/.emacs.d/.ido.last")
+(setq ido-enable-flex-matching t)
+(setq ido-use-filename-at-point 'guess)
+(setq ido-show-dot-for-dired t)
+
+
+;; C-x C-j opens dired with the cursor right on the file you're editing
+(require 'dired-x)
+
+;; 保存编辑位置
+(require 'saveplace)
+(setq save-place-file "~/.emacs.d/.emacs-places")
+(setq-default save-place t)
+
+
+
+
+
+
+(provide 'myemacs)
+

@@ -5,16 +5,23 @@
 
 
 ;;将下载的lisp放在~/myemacs/packages
-;(add-to-list 'load-path "~/Sync/Dropbox/uemacs/emacs.el")
+;; (add-to-list 'load-path "~/Sync/Dropbox/uemacs/emacs.el")
 ;(load "~/Sync/Dropbox/uemacs/emacs.el/subdirs")
-;(require 'myemacs)
+;; (require 'myemacs)
 
+
+
+(add-to-list 'load-path  "~/.emacs.d/emacs.el")
+(require 'myemacs)			
 
 ;;The following is test;;
 
-(add-to-list 'load-path "~/Sync/Dropbox/Emacs/emacs.el")
-(load "~/Sync/Dropbox/Emacs/emacs.el/subdirs")
-(require 'myemacs)
+
+
+;;(add-to-list 'load-path "~/Sync/Dropbox/Emacs/emacs.el")
+;;(load "~/Sync/Dropbox/Emacs/emacs.el/subdirs")
+;;(load "~/Sync/Dropbox/Emacs/emacs.el/myemacs")
+;;(require 'myemacs)
 
 ;;The above is test;;
 
@@ -23,4 +30,3 @@
 (let ((woman-topic-at-point t))
 (woman))))
 (setq woman-use-own-frame nil)  
-(require 'buffer-move) 
