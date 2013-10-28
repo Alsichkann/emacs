@@ -9,25 +9,67 @@
 
  
 ;;设置风格corlor theme
-;;(require 'color-theme)
-   ; (color-theme-initialize)
-  ;  (color-theme-robin-hood)
- ;   (color-theme-gnome2)
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-	 (color-theme-initialize)
-	 (color-theme-blackboard)))
 
-;;(require 'my-font-set)          ;;设置字体
+(require 'color-theme)
+   (color-theme-initialize)
+    (color-theme-robin-hood)
+   (color-theme-gnome2)
+
+
+;; ;(when (eq system-type 'darwin)
+;;   ;; default Latin font (e.g. Consolas)
+;;   (set-face-attribute 'default nil :family "Monaco")
+;;   ;; default font size (point * 10)
+;;   ;;
+;;   ;; WARNING!  Depending on the default font,
+;;   ;; if the size is not supported very well, the frame will be clipped
+;;   ;; so that the beginning of the buffer may not be visible correctly. 
+;;   (set-face-attribute 'default nil :height 116)
+;;   ;; use specific font for Korean charset.
+;;   ;; if you want to use different font size for specific charset,
+;;   ;; add :size POINT-SIZE in the font-spec.
+;;   (set-fontset-font t 'chinese-gb2312 (font-spec :name "Microsoft Yahei"))
+;;   ;; you may want to add different for other charset in this way.
+;;   ;)
 
 ;(global-font-lock-mode t)       ;;语法加亮
 
+;; (set-frame-font "Monaco:pixelsize=13")
+;; (if (display-graphic-p)
+;; (dolist (charset '(han kana symbol cjk-misc bopomofo))
+;;   (set-fontset-font (frame-parameter nil 'font)
+;;   charset
+;;   (font-spec :family "Microsoft Yahei" :size 14))))
 
-;设置默认字体
-(set-default-font "YaHei Consolas Hybrid")
-(set-fontset-font "fontset-default"
-  'unicode '("YaHei Consolas Hybrid" . "unicode-bmp"))
+;(when (eq system-type 'darwin)
+  ;; default Latin font (e.g. Consolas)
+  (set-face-attribute 'default nil :family "Monaco")
+  ;; default font size (point * 10)
+  ;;
+  ;; WARNING!  Depending on the default font,
+  ;; if the size is not supported very well, the frame will be clipped
+  ;; so that the beginning of the buffer may not be visible correctly. 
+  (set-face-attribute 'default nil :height 126)
+  ;; use specific font for Korean charset.
+  ;; if you want to use different font size for specific charset,
+  ;; add :size POINT-SIZE in the font-spec.
+  (set-fontset-font t 'chinese-gb2312 (font-spec :name "Microsoft Yahei"))
+  ;; you may want to add different for other charset in this way.
+  ;)
+
+;; (set-default-font "YaHei Consolas Hybrid")
+;; (set-fontset-font "fontset-default"
+;;   'unicode '("YaHei Consolas Hybrid" . "unicode-bmp"))
+
+;; ;; Setting English Font
+;; (set-face-attribute
+;;  'default nil :font "Monaco 12")
+
+;; ;; Chinese Font
+;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
+;;   (set-fontset-font (frame-parameter nil 'font)
+;;                     charset
+;;                     (font-spec :family "Microsoft Yahei" :size 12)))
 
 ;; choose your own fonts, in a system dependant way
 ;(if (string-match "apple-darwin" system-configuration)
@@ -65,12 +107,22 @@
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
 
+;(setq initial-frame-alist
+ ;     (append '((width . 78) (height . 98) (top . -15) (left . 0) (font . "4.System VIO"))
+  ;           initial-frame-alist))
+
+;(setq default-frame-alist
+ ;     (append '((width . 78) (height . 98h) (top . -15) (left . 0) (font . "4.System VIO"))
+  ;           default-frame-alist))
+
+;; (setq default-frame-alist
+;;       '((height . 40) (width . 80) (menu-bar-lines . 20) (tool-bar-lines . 0))) 
 
 ;;启用时间显示设置 
 (display-time-mode 1)  
 
 (setq default-buffer-file-coding-system 'utf-8
-      default-frame-alist (append '((top + 0)(left + 0)(width . 80) (height . 70)) default-frame-alist);;; left +660 closetoright.
+     default-frame-alist (append '((top + -20)(left - 10)(width . 78) (height . 90)) default-frame-alist);;; left +660 closetoright.
       visible-bell nil
       inhibit-startup-message t                ;;关闭启动时的 “开机画面”
       transient-mark-mode t                    ;;加亮选中部分 

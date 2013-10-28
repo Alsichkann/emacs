@@ -1,34 +1,40 @@
-((("observable" .
+((("Liu" .
+   [0 0 1])
+  ("and" .
+   [1 0 0])
+  ("literature" .
+   [1 0 0 0 1 0 0 0 0 0])
+  ("optimal" .
+   [1 0 0 0 0 0 0])
+  ("reinsurance" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("investment" .
    [1 0 0 0 0 0 0 0 0 0])
-  ("example" .
-   [1 0 0 0 0 0 0])
-  ("for" .
-   [1 0 0])
-  ("see" .
-   [1 0 0])
-  ("studied" .
-   [1 0 0 0 0 0 0])
-  ("been" .
+  ("Markovian" .
+   [1 0 0 0 0 0 0 0 0])
+  ("regime-switching" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("market" .
+   [1 0 0 0 0 0])
+  ("have" .
    [1 0 0 0])
   ("problems" .
    [1 0 0 0 0 0 0 0])
-  ("have" .
+  ("been" .
    [1 0 0 0])
-  ("market" .
-   [1 0 0 0 0 0])
-  ("regime-switching" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("Markovian" .
-   [1 0 0 0 0 0 0 0 0])
-  ("investment" .
-   [1 0 0 0 0 0 0 0 0 0])
-  ("reinsurance" .
-   [1 0 0 0 0 0 0 0 0 0 0])
-  ("optimal" .
+  ("studied" .
    [1 0 0 0 0 0 0])
-  ("literature" .
-   [1 0 0 0 1 0 0 0 0 0])
-  ("and" .
+  ("see" .
    [1 0 0])
-  ("Liu" .
-   [0 0 1])))
+  ("for" .
+   [1 0 0])
+  ("example" .
+   [1 0 0 0 0 0 0])
+  ("observable" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("color-theme-test" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("color-theme-gnome2" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("-10" .
+   [1 0 0])))
